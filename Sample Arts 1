@@ -1,0 +1,160 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+int main()
+{
+
+    //level 1 character at this point
+    char name[50];
+    char res1;
+    cout << "What is your name?" << endl;
+    cin.getline(name, 50);
+    system("cls");
+    int i;
+    cout<<"                     Welcome " << name <<" to Simple Adventure!\n";
+    cout<<"            Input the commands by entering their corresponding numbers.\n";
+    cout<<"                                 Have fun!"<<endl;
+    cout<<endl;
+    cout<<endl;
+    system("pause");
+    system("cls");
+
+
+    bandit1:
+    cout<<"A bandit is trying to violate your rights\nby invading your private personal space"<<endl;
+    cout<<"What will you do?"<<endl; cout<<endl;
+    part1: //part1
+    cout<<"1. Attack\n";
+    cout<<"2. Magick attack\n";
+    cout<<"3. Do nothing\n";
+    cout<<endl;
+     cout<<"Input: ";
+     cin >> i;
+     cout<<endl;
+     switch(i)
+     {
+         case 1:
+            int attack1_Ran; srand( time(0));
+            attack1_Ran=rand()%6+1;
+            cout << "You attacked with your shortsword. ";
+            cout << "You did "<< attack1_Ran << " damage points!"<<endl;
+            if(attack1_Ran>=4)
+            {
+
+                cout<<"You killed the bandit!";
+                cout<<endl; cout<<endl;
+                system("pause");
+                system("cls");
+
+            }
+            else
+                {
+                    defense1: //defense part1
+                    cout<<"You didnt kill the bandit. What would you like to do now?"<<endl;
+                    cout<<endl;
+                    cout<<"1. Block\n";
+                    cout<<"2. Evade\n";
+                    cout<<"3. Run\n";
+                    cout<<endl;
+                    cout<<"Input: "; cin >> i; cout<<endl; cout<<endl;
+
+
+
+                    switch (i)
+                    {
+                           case 1:
+                           cout << "You blocked the attack!"<<endl;
+                        break;
+                           case 2:
+                           cout << "You evaded the attack!"<<endl;
+                        break;
+                           case 3:
+                           cout << "You ran away from the enemy."<<endl;
+                           goto gameover;
+                        break;
+
+                    }
+                     if(i=1||2)
+                            {
+                                cout<<"The bandit is still alive, what will you do?"<<endl; cout<<endl;
+                                goto part1; //part1
+
+                            }
+                }
+
+            break;
+
+
+               case 2:
+               int magick1_Ran; srand( time(0));
+               magick1_Ran=rand()%5+1;
+               cout << "You attacked with your magick spells" << endl;
+               cout << "You did "<< magick1_Ran << " magickal damage points!"<<endl;
+               if(magick1_Ran>2)
+               {
+                   cout<<"You killed the bandit!"<<endl; cout<<endl;
+                   system("pause");
+                   system("cls");
+
+               }
+                   else
+                   {
+                        goto defense1; //defense part1
+                   }
+            break;
+
+
+               case 3:
+               cout << "You died"<<endl;cout<<endl;
+               cout<<"Do you want to try again? Y/N: ";
+               cin>>res1;
+               if (res1=='y')
+               {
+                   goto bandit1;
+               }
+                else if (res1=='n')
+                {
+                    goto gameover;
+                }
+            break;
+
+
+        }
+
+        //part2
+        cout<<"You look at the lifeless fresh corpse of the bandit.\nYou decided to loot it for luck."<<endl;
+        cout<<"What will you take from the bandit?"<<endl; cout<<endl;
+        cout<<"1. Medallion\n";
+        cout<<"2. An ID\n";
+        cout<<"3. How To Scare Travellers Passing Through And YOU, Vol. 3\n";
+        cout<<endl;
+         cout<<"Input: ";
+         cin >> i;
+         cout<<endl;
+        switch(i)
+        {
+            case 1:
+                cout<<"You took the eerie looking medallion and you put it in your pocket"<<endl;
+                break;
+            case 2:
+                cout<<"You took the ID and saw that the bandits name was James, he was an Intern\nand that he was working for a company called Sticky Fingers Co.."<<endl;
+                break;
+            case 3:
+                cout<<"You took the book, skimmed through a few pages,"<<endl;
+        }
+
+       gameover:
+        system("pause");
+        system("cls");
+       cout<<"Game over"<<endl;
+
+       return 0;
+
+}
+
+
+
